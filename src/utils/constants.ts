@@ -7,9 +7,9 @@ import BN from "bn.js"
 
 export const PrivateKeyPrefix: string = "PrivateKey-"
 export const NodeIDPrefix: string = "NodeID-"
-export const PrimaryAssetAlias: string = "AVAX"
-export const MainnetAPI: string = "api.avax.network"
-export const FujiAPI: string = "api.avax-test.network"
+export const PrimaryAssetAlias: string = "CRYFT"
+export const MainnetAPI: string = "api.cryft.network"
+export const FujiAPI: string = "api.cryft-test.network"
 
 export interface C {
   blockchainID: string
@@ -68,7 +68,7 @@ export interface Networks {
 
 export const NetworkIDToHRP: object = {
   0: "custom",
-  1: "avax",
+  1: "cryft",
   2: "cascade",
   3: "denali",
   4: "everest",
@@ -79,7 +79,7 @@ export const NetworkIDToHRP: object = {
 
 export const HRPToNetworkID: object = {
   manhattan: 0,
-  avax: 1,
+  cryft: 1,
   cascade: 2,
   denali: 3,
   everest: 4,
@@ -90,7 +90,7 @@ export const HRPToNetworkID: object = {
 
 export const NetworkIDToNetworkNames: object = {
   0: ["Manhattan"],
-  1: ["Avalanche", "Mainnet"],
+  1: ["Cryft", "Mainnet"],
   2: ["Cascade"],
   3: ["Denali"],
   4: ["Everest"],
@@ -101,7 +101,7 @@ export const NetworkIDToNetworkNames: object = {
 
 export const NetworkNameToNetworkID: object = {
   Manhattan: 0,
-  Avalanche: 1,
+  Cryft: 1,
   Mainnet: 1,
   Cascade: 2,
   Denali: 3,

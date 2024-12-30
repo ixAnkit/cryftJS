@@ -1,8 +1,8 @@
-# AvalancheJS - The Avalanche Platform JavaScript Library
+# CryftJS - The Avalanche Platform JavaScript Library
 
 ## Overview
 
-AvalancheJS is a JavaScript Library for interfacing with the Avalanche Platform. It is built using TypeScript and intended to support both browser and Node.js. The AvalancheJS library allows you to issue commands to the Avalanche node APIs.
+CryftJS is a JavaScript Library for interfacing with the Avalanche Platform. It is built using TypeScript and intended to support both browser and Node.js. The CryftJS library allows you to issue commands to the Avalanche node APIs.
 
 The APIs currently supported by default are:
 
@@ -18,9 +18,9 @@ The APIs currently supported by default are:
 * PlatformVM API (P-Chain)
 * Socket
 
-We built AvalancheJS with ease of use in mind. With this library, any Javascript developer is able to interact with a node on the Avalanche Platform who has enabled their API endpoints for the developer's consumption. We keep the library up-to-date with the latest changes in the [Avalanche Platform Specification](https://docs.avax.network).
+We built CryftJS with ease of use in mind. With this library, any Javascript developer is able to interact with a node on the Avalanche Platform who has enabled their API endpoints for the developer's consumption. We keep the library up-to-date with the latest changes in the [Metal Platform Specification](https://docs.cryft.network).
 
-  Using AvalancheJS, developers can:
+  Using CryftJS, developers can:
 
 * Locally manage private keys
 * Retrieve balances on addresses
@@ -35,13 +35,13 @@ We built AvalancheJS with ease of use in mind. With this library, any Javascript
 
 ### Requirements
 
-AvalancheJS requires Node.js LTS version 14.16.0 or higher to compile.
+CryftJS requires Node.js LTS version 14.16.0 or higher to compile.
 
 ### Installation
 
 Avalanche is available for install via `yarn`:
 
-`yarn add avalanche`
+`yarn add @cryft-labs/cryftjs`
 
 You can also pull the repo down directly and build it from scratch:
 
@@ -49,22 +49,22 @@ You can also pull the repo down directly and build it from scratch:
 
 This will generate a pure Javascript library and place it in a folder named "web" in the project root. The "avalanche.js" file can then be dropped into any project as a pure javascript implementation of Avalanche.
 
-The AvalancheJS library can be imported into your existing Node.js project as follows:
+The CryftJS library can be imported into your existing Node.js project as follows:
 
 ```js
-const avalanche = require("avalanche")
+const cryft = require("@cryft-labs/cryftjs")
 ```
 
 Or into your TypeScript project like this:
 
 ```js
-import { Avalanche } from "avalanche"
+import { Cryft } from "@cryft-labs/cryftjs"
 ```
 
 ### Importing essentials
 
 ```js
-import { Avalanche, BinTools, BN, Buffer } from "avalanche"
+import { Cryft, BinTools, BN, Buffer } from "@cryft-labs/cryftjs"
 
 const bintools = BinTools.getInstance()
 ```
@@ -72,22 +72,22 @@ const bintools = BinTools.getInstance()
 The above lines import the libraries used in the tutorials. The libraries include:
 
 * Avalanche: Our javascript module.
-* BinTools: A singleton built into AvalancheJS that is used for dealing with binary data.
-* [BN](https://www.npmjs.com/package/bn.js): A bignumber module use by AvalancheJS.
+* BinTools: A singleton built into CryftJS that is used for dealing with binary data.
+* [BN](https://www.npmjs.com/package/bn.js): A bignumber module use by CryftJS.
 * [Buffer](https://www.npmjs.com/package/buffer): A Buffer library.
 
 ## Example 1 &mdash; Managing X-Chain Keys
 
-AvalancheJS comes with its own AVM Keychain. This KeyChain is used in the functions of the API, enabling them to sign using keys it's registered. The first step in this process is to create an instance of AvalancheJS connected to our Avalanche Platform endpoint of choice.
+CryftJS comes with its own AVM Keychain. This KeyChain is used in the functions of the API, enabling them to sign using keys it's registered. The first step in this process is to create an instance of CryftJS connected to our Cryft Platform endpoint of choice.
 
 ```js
-import { Avalanche, BinTools, Buffer, BN } from "avalanche"
+import { Cryft, BinTools, Buffer, BN } from "@cryft-labs/cryftjs"
 
 const bintools = BinTools.getInstance()
 
 const myNetworkID = 12345 //default is 1, we want to override that for our local network
-const avalanche = new Avalanche("localhost", 9650, "http", myNetworkID)
-const xchain = avalanche.XChain() //returns a reference to the X-Chain used by AvalancheJS
+const cryft = new Cryft("localhost", 9650, "http", myNetworkID)
+const xchain = cryft.XChain() //returns a reference to the X-Chain used by CryftJS
 ```
 
 ### Accessing the KeyChain
@@ -165,20 +165,20 @@ const isValid = keypair.verify(message, signature) // returns a boolean
 
 ## Example 2 &mdash; Creating An Asset
 
-This example creates an asset in the X-Chain and publishes it to the Avalanche Platform. The first step in this process is to create an instance of AvalancheJS connected to our Avalanche Platform endpoint of choice.
+This example creates an asset in the X-Chain and publishes it to the Avalanche Platform. The first step in this process is to create an instance of CryftJS connected to our Cryft Platform endpoint of choice.
 
 ```js
-import { Avalanche, BinTools, Buffer, BN } from "avalanche"
-import { InitialStates, SECPTransferOutput } from "avalanche/dist/apis/avm"
+import { Cryft, BinTools, Buffer, BN } from "@cryft-labs/cryftjs"
+import { InitialStates, SECPTransferOutput } from "@cryft-labs/cryftjs/dist/apis/avm"
 
 const myNetworkID = 12345 // default is 1, we want to override that for our local network
-const avalanche = new Avalanche("localhost", 9650, "http", myNetworkID)
-const xchain = avalanche.XChain() // returns a reference to the X-Chain used by AvalancheJS
+const cryft = new Cryft("localhost", 9650, "http", myNetworkID)
+const xchain = cryft.XChain() // returns a reference to the X-Chain used by CryftJS
 ```
 
 ### Describe the new asset
 
-The first steps in creating a new asset using AvalancheJS is to determine the qualities of the asset. We will give the asset a name, a ticker symbol, as well as a denomination.
+The first steps in creating a new asset using CryftJS is to determine the qualities of the asset. We will give the asset a name, a ticker symbol, as well as a denomination.
 
 ```js
 // Name our new coin and give it a symbol
@@ -247,7 +247,7 @@ const signed = unsigned.sign(xchain) // returns a Tx class
 
 Now that we have a signed transaction ready to send to the network, let's issue it!
 
-Using the AvalancheJS X-Chain API, we going to call the `issueTx` function. This function can take either the Tx class returned in the previous step, a CB58 representation of the transaction, or a raw Buffer class with the data for the transaction. Examples of each are below:
+Using the CryftJS X-Chain API, we going to call the `issueTx` function. This function can take either the Tx class returned in the previous step, a CB58 representation of the transaction, or a raw Buffer class with the data for the transaction. Examples of each are below:
 
 ```js
 // using the Tx class
@@ -288,19 +288,19 @@ The X-Chain uses the TxID of the transaction which created the asset as the uniq
 
 ## Example 3 &mdash; Sending An Asset
 
-This example sends an asset in the X-Chain to a single recipient. The first step in this process is to create an instance of Avalanche connected to our Avalanche Platform endpoint of choice.
+This example sends an asset in the X-Chain to a single recipient. The first step in this process is to create an instance of Cryft connected to our Cryft Platform endpoint of choice.
 
 ```js
-import { Avalanche, BinTools, Buffer, BN } from "avalanche"
+import { Cryft, BinTools, Buffer, BN } from "@cryft-labs/cryftjs"
 
 const myNetworkID = 12345 // default is 1, we want to override that for our local network
-const avalanche = new avalanche.Avalanche(
+const cryft = new cryft.Cryft(
   "localhost",
   9650,
   "http",
   myNetworkID
 )
-const xchain = avalanche.XChain() // returns a reference to the X-Chain used by AvalancheJS
+const xchain = cryft.XChain() // returns a reference to the X-Chain used by CryftJS
 ```
 
 We're also assuming that the keystore contains a list of addresses used in this transaction.
@@ -400,7 +400,7 @@ yarn build && yarn test
 ```
 
 If the E2E check does not pass, go into the 'checks' section of the PR.
-`https://github.com/ava-labs/avalanchejs/pull/<PR number>/checks`
+`https://github.com/ava-labs/CryftJS/pull/<PR number>/checks`
 
 * Click on the `> E2E` tab on the left
 * Click 'Re-run jobs' on the right

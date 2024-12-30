@@ -1,5 +1,5 @@
 import {
-  Avalanche,
+  Cryft,
   BinTools,
   BN,
   Buffer,
@@ -33,7 +33,7 @@ const ip: string = "localhost"
 const port: number = 9650
 const protocol: string = "http"
 const networkID: number = 1337
-const avalanche: Avalanche = new Avalanche(ip, port, protocol, networkID)
+const avalanche: Cryft = new Cryft(ip, port, protocol, networkID)
 const pchain: PlatformVMAPI = avalanche.PChain()
 // Keychain with 4 keys-A, B, C, and D
 const pKeychain: KeyChain = pchain.keyChain()

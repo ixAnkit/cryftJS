@@ -1,13 +1,13 @@
-import { Avalanche } from "src"
+import { Cryft } from "src"
 
-export const getAvalanche = (): Avalanche => {
+export const getAvalanche = (): Cryft => {
   if (typeof process.env.AVALANCHEGO_IP === "undefined") {
     throw "Undefined environment variable: AVALANCHEGO_IP"
   }
   if (typeof process.env.AVALANCHEGO_PORT === "undefined") {
     throw "Undefined environment variable: AVALANCHEGO_PORT"
   }
-  const avalanche: Avalanche = new Avalanche(
+  const avalanche: Cryft = new Cryft(
     process.env.AVALANCHEGO_IP,
     parseInt(process.env.AVALANCHEGO_PORT)
   )

@@ -1,6 +1,6 @@
 import mockAxios from "jest-mock-axios"
 import { HttpResponse } from "jest-mock-axios/dist/lib/mock-axios-types"
-import { Avalanche } from "src"
+import { Cryft } from "src"
 import { MetricsAPI } from "../../../src/apis/metrics/api"
 
 describe("Metrics", (): void => {
@@ -8,7 +8,7 @@ describe("Metrics", (): void => {
   const port: number = 9650
   const protocol: string = "https"
 
-  const avalanche: Avalanche = new Avalanche(
+  const avalanche: Cryft = new Cryft(
     ip,
     port,
     protocol,

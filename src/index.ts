@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module Avalanche
+ * @module Cryft
  */
 import AvalancheCore from "./avalanche"
 import { AdminAPI } from "./apis/admin/api"
@@ -27,15 +27,15 @@ import BN from "bn.js"
 import { Buffer } from "buffer/"
 
 /**
- * AvalancheJS is middleware for interacting with Avalanche node RPC APIs.
+ * CryftJS is middleware for interacting with cryft node RPC APIs.
  *
  * Example usage:
  * ```js
- * const avalanche: Avalanche = new Avalanche("127.0.0.1", 9650, "https")
+ * const cryft: Cryft = new Cryft("127.0.0.1", 9650, "https")
  * ```
  *
  */
-export default class Avalanche extends AvalancheCore {
+export default class Cryft extends AvalancheCore {
   /**
    * Returns a reference to the Admin RPC.
    */
@@ -88,10 +88,10 @@ export default class Avalanche extends AvalancheCore {
   PChain = () => this.apis.pchain as PlatformVMAPI
 
   /**
-   * Creates a new Avalanche instance. Sets the address and port of the main Avalanche Client.
+   * Creates a new Cryft instance. Sets the address and port of the main Cryft Client.
    *
-   * @param host The hostname to resolve to reach the Avalanche Client RPC APIs
-   * @param port The port to resolve to reach the Avalanche Client RPC APIs
+   * @param host The hostname to resolve to reach the Cryft Client RPC APIs
+   * @param port The port to resolve to reach the Cryft Client RPC APIs
    * @param protocol The protocol string to use before a "://" in a request,
    * ex: "http", "https", "git", "ws", etc. Defaults to http
    * @param networkID Sets the NetworkID of the class. Default [[DefaultNetworkID]]
@@ -164,7 +164,7 @@ export default class Avalanche extends AvalancheCore {
   }
 }
 
-export { Avalanche }
+export { Cryft }
 export { AvalancheCore }
 export { BinTools }
 export { BN }

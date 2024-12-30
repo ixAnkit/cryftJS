@@ -1,4 +1,4 @@
-import { Avalanche, BinTools, Buffer } from "../../src"
+import { Cryft, BinTools, Buffer } from "../../src"
 import { IndexAPI } from "../../src/apis/index/index"
 import { GetLastAcceptedResponse } from "../../src/apis/index/interfaces"
 import { Vertex } from "../../src/apis/avm"
@@ -7,7 +7,7 @@ const ip: string = "indexer-demo.avax.network"
 const port: number = 443
 const protocol: string = "https"
 const networkID: number = 1
-const avalanche: Avalanche = new Avalanche(ip, port, protocol, networkID)
+const avalanche: Cryft = new Cryft(ip, port, protocol, networkID)
 const index: IndexAPI = avalanche.Index()
 const bintools: BinTools = BinTools.getInstance()
 

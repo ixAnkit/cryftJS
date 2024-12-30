@@ -1,5 +1,5 @@
 {
-  "name": "cryft",
+  "name": "@cryft-labs/crftjs",
   "version": "3.15.5",
   "description": "Cryft Platform JS Library",
   "main": "dist/index.js",
