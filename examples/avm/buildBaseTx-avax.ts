@@ -23,13 +23,7 @@ const protocol: string = "http"
 const networkID: number = 1337
 const xBlockchainID: string = Defaults.network[networkID].X.blockchainID
 const avaxAssetID: string = Defaults.network[networkID].X.avaxAssetID
-const avalanche: Cryft = new Cryft(
-  ip,
-  port,
-  protocol,
-  networkID,
-  xBlockchainID
-)
+const avalanche: Cryft = new Cryft(ip, port, protocol, networkID, xBlockchainID)
 const xchain: AVMAPI = avalanche.XChain()
 const xKeychain: KeyChain = xchain.keyChain()
 const privKey: string = `${PrivateKeyPrefix}${DefaultLocalGenesisPrivateKey}`

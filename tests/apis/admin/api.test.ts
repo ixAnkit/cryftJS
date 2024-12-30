@@ -1,6 +1,6 @@
 import mockAxios from "jest-mock-axios"
 import { HttpResponse } from "jest-mock-axios/dist/lib/mock-axios-types"
-import {  Cryft } from "src"
+import { Cryft } from "src"
 import {
   GetLoggerLevelResponse,
   LoadVMsResponse,
